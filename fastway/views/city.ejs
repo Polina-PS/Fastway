@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include ('blocks/navigation') -%>
+    <div class="container">
+        <div class="flight-info" style="gap: 8px; width: 800px;">
+        <a href="#" onclick="history.back(); return false;">← Назад</a>
+        <h2>Вокзалы города <%= cityName %></h2>
+            <% stations.forEach(station => { %>
+                <span><a href="/station/city_<%= cityName %>/station_<%= station.name_station %>"><%= station.name_station %></a></span>
+            <% }); %>
+        </div>
+    </div>
+</body>
+</html>

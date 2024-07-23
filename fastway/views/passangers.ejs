@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+    <%- include ('blocks/navigation') -%>
+    <div class="container">
+        <div class="flight-info" style="gap: 8px; width: 800px;">
+            <h2>Информация о рейсе</h2>
+            <%- include ('blocks/data_passanger') -%>
+        </div>    
+        <div> 
+            <h2>Заполните данные</h2>
+            <form action="/data_passangers/<%= flight.id_flight %>/<%= id_class %>/<%= name_class %>/<%= date_flight %>/<%= carriage %>/<%= seat%>/<%= price %>" method="POST">
+                <input type="text" id="last_name" name="last_name" placeholder="Фамилия">
+                <input type="text" id="name" name="name" placeholder="Имя">
+                <input type="text" id="father_name" name="father_name" placeholder="Отчество">
+                <input type="text" id="birthday" name="birthday" placeholder="Дата рождения"><br><br>
+                <input type="text" id="series" name="series" placeholder="Серия">
+                <input type="text" id="number" name="number" placeholder="Номер"><br><br>
+                <input type="text" id="phone" name="phone" placeholder="Номер телефона">
+                <input type="text" id="mail" name="mail" placeholder="Электронная почта"><br><br>
+                <button type="submit">Продолжить</button><span style="margin-left: 20px; font-weight: bold;"> Цена: <%= price %> руб.</span>
+            </form>
+        </div>  
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script> 
+        flatpickr('#birthday', { 
+            dateFormat: 'd.m.Y', 
+            enableTime: false,
+            clickOpens: true, // Разрешить открытие календаря при клике
+            allowInput: true, // Разрешить пользователю вводить дату вручную
+            placeholder: 'Дата рождения' 
+        }); 
+    </script> 
+</body>
+</html>
+
+
+
+
+
+
+

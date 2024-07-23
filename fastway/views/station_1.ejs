@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <%- include ('blocks/navigation') -%>
+    <div class="container">
+        
+            <a href="#" onclick="history.back(); return false;">← Назад</a>
+            <h2>Вокзал <%= stationName %></h2> 
+
+            <h3>Рейсы из вокзала:</h3>
+            <% if (flights_out.length > 0) { %>
+                <% flights_out.forEach(flight => { %> 
+                    <div class="flight">
+                        <% if (flight.name_train_category.charAt(0) === 'Л') { %>
+                            <div class="flight-info" style="gap: 8px; width: 900px;">
+                                <div class="flight-info-train">
+                                    <span style="font-weight: bold; color: rgb(3, 3, 195);">
+                                        <%= 'Ласточка' %>
+                                    </span>
+                        <% } else if (flight.name_train_category.charAt(0) === 'С') { %>
+                            <div class="flight-info" style="gap: 8px; width: 900px;">
+                                <div class="flight-info-train">
+                                    <span style="font-weight: bold; color: rgb(213, 0, 0);">
+                                        <%= 'Сапсан' %>
+                                    </span>
+                        <% } else if (flight.name_train_category.charAt(0) === 'К') { %>
+                            <div class="flight-info" style="gap: 8px; width: 900px;">
+                                <div class="flight-info-train">
+                                    <span style="font-weight: bold; color: rgb(1, 104, 1);">
+                                        <%= 'Стандартный' %>
+                                    </span>
+                        <% } %>
+                    
+                        <span>Рейс: <%= flight.flight_number %></span>
+                        <span>Поезд: <%= flight.number_train %></span>
+                        
+                        </div>
+                        <div class="flight-info-city-time">
+                            <div class="flight-info-out">
+                                <span style="font-weight: bold; color:#016d8e;">
+                                    <%= flight.city_1 %><br>Вокзал <%= flight.station_1 %></span>
+                                <span><%= flight.time_start %></span>
+                            </div>
+                            <div class="flight-info-time">
+                                <span>-------------------------></span>
+                                <span>Время в пути: <%= flight.time_way %></span>
+                            </div>
+                            <div class="flight-info-in">
+                                <span style="font-weight: bold; color:#016d8e;">
+                                    <%= flight.city_2 %><br>Вокзал <%= flight.station_2 %></span>
+                                <span><%= flight.time_end %></span>
+                            </div>
+                        </div> 
+                        </div>
+                    </div>
+                <% }); %>
+            <% } else { %>
+                <p>Нет доступных рейсов из этого вокзала</p>
+            <% } %>
+            
+            <h3>Рейсы в вокзал:</h3>
+            <% if (flights_in.length > 0) { %>
+                <% flights_in.forEach(flight => { %> 
+                    <div class="flight">
+                        <% if (flight.name_train_category.charAt(0) === 'Л') { %>
+                            <div class="flight-info" style="gap: 8px; width: 900px;">
+                                <div class="flight-info-train">
+                                    <span style="font-weight: bold; color: rgb(3, 3, 195);">
+                                        <%= 'Ласточка' %>
+                                    </span>
+                        <% } else if (flight.name_train_category.charAt(0) === 'С') { %>
+                            <div class="flight-info" style="gap: 8px; width: 900px;">
+                                <div class="flight-info-train">
+                                    <span style="font-weight: bold; color: rgb(213, 0, 0);">
+                                        <%= 'Сапсан' %>
+                                    </span>
+                        <% } else if (flight.name_train_category.charAt(0) === 'К') { %>
+                            <div class="flight-info"  style="gap: 8px; width: 900px;">
+                                <div class="flight-info-train">
+                                    <span style="font-weight: bold; color: rgb(1, 104, 1);">
+                                        <%= 'Стандартный' %>
+                                    </span>
+                        <% } %>
+                    
+                        <span>Рейс: <%= flight.flight_number %></span>
+                        <span>Поезд: <%= flight.number_train %></span>
+                        
+                        </div>
+                        <div class="flight-info-city-time">
+                            <div class="flight-info-out">
+                                <span style="font-weight: bold; color:#016d8e;">
+                                    <%= flight.city_1 %><br>Вокзал <%= flight.station_1 %></span>
+                                <span><%= flight.time_start %></span>
+                            </div>
+                            <div class="flight-info-time">
+                                <span>-------------------------></span>
+                                <span>Время в пути: <%= flight.time_way %></span>
+                            </div>
+                            <div class="flight-info-in">
+                                <span style="font-weight: bold; color:#016d8e;">
+                                    <%= flight.city_2 %><br>Вокзал <%= flight.station_2 %></span>
+                                <span><%= flight.time_end %></span>
+                            </div>
+                        </div>
+                    </div>
+                <% }); %>
+                </div>
+            <% } else { %>
+                <p>Нет доступных рейсов в этот вокзал</p>
+            <% } %>
+    </div>
+</body>
+</html>

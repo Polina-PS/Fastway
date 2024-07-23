@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include ('blocks/navigation') -%>
+    <div class="container">
+        <div class="flight-info" style="gap: 8px; width: 800px;">
+            <h2>Проверьте данные о рейсе</h2>
+            <%- include ('blocks/data_passanger') -%>
+        </div>
+        <div class="flight-info" style="gap: 8px; width: 800px;">
+            <h2>Проверьте данные пассажира</h2>
+            <span>Фамилия: <%= last_name %><br></span>
+            <span>Имя: <%= name %><br></span>
+            <span>Отчество: <%= father_name %><br></span>
+            <span>Дата рождения: <%= birthday %><br></span>
+            <span>Серия: <%= series %><br></span>
+            <span>Номер: <%= number %><br></span>
+        </div>
+        <div class="flight-info" style="gap: 8px; width: 800px;">
+            <h2>Проверьте контактную информацию</h2>
+            <span>Телефон: <%= phone %><br></span>
+            <span>Электронная почта: <%= mail %><br><br></span>
+        </div>
+        <div class="buttons-row">
+            <a class="button" style="font-size: 14px; display: inline-block;" href="/success/<%= flight.id_flight %>/<%= id_class %>/<%= date_flight %>/<%= last_name %>/<%= name %>/<%= father_name %>/<%= birthday %>/<%= series %>/<%= number %>/<%= phone %>/<%= mail %>">
+                Оплатить</a>
+            <span style="margin-left: 20px; font-weight: bold;"> Цена: <%= price %> руб.</span>
+        </div>
+    </div>
+</body>
+</html>

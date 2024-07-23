@@ -1,0 +1,18 @@
+<span>Рейс: <%= flight.flight_number %></span>
+<span>Поезд: <%= flight.number_train %></span>
+<% if (flight.number_train.endsWith('Л')) { %>
+    <span style="font-weight: bold; color: rgb(213, 0, 0);">
+    <%= 'Ласточка' %></span>
+<% } else if (flight.number_train.endsWith('С')) { %>
+    <span style="font-weight: bold; color: rgb(3, 3, 195);">
+    <%= 'Сапсан' %></span>
+<% }  else if (flight.number_train.endsWith('К')) { %>
+    <span style="font-weight: bold; color: rgb(1, 104, 1);">
+        <%= 'Стандартный' %></span>
+<% } %>
+<span>Откуда: <%= flight.city_1 %>, <%= flight.station_1 %></span>
+<span>Время отбытия: <%= flight.time_start.split(':').slice(0, 2).join(':') %></span>
+<span>Куда: <%= flight.city_2 %>, <%= flight.station_2 %></span>
+<span>Время прибытия: <%= flight.time_end.split(':').slice(0, 2).join(':') %></span>
+<span>Время в пути: <%= flight.time_way.split(':').slice(0, 2).join(':') %></span>
+<span><%= name_class%>, Вагон: <%= carriage %>, Место: <%= seat%></span>

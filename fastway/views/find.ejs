@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include ('blocks/navigation') -%>
+    <div class="container">
+        <%- include ('blocks/search') -%>
+
+        <h2>Доступные рейсы на 
+            <% day.forEach(dayItem => { %>
+                <%= new Date(dayItem.day).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric', weekday: 'short' }) %>
+            <% }); %>
+        </h2>
+            
+                <% flights.forEach((flight, index) => { %>
+                
+                        <% if (flight.number_train.endsWith('Л')) { %>
+                            <div class="flight"><div class="flight-info"><div class="flight-info-train"><span style="font-weight: bold; color: rgb(3, 3, 195);">
+                                <%= 'Ласточка' %></span>
+                        <% } else if (flight.number_train.endsWith('С')) { %>
+                            <div class="flight"><div class="flight-info"><div class="flight-info-train"><span style="font-weight: bold; color: rgb(213, 0, 0);">
+                                <%= 'Сапсан' %></span>
+                        <% } else if (flight.number_train.endsWith('К')) { %>
+                            <div class="flight"><div class="flight-info"><div class="flight-info-train"><span style="font-weight: bold; color: rgb(1, 104, 1);">
+                                <%= 'Стандартный' %></span>
+                        <% } %>
+                        
+                        <span>Рейс: <%= flight.flight_number %></span>
+                        <span>Поезд: <%= flight.number_train %></span></div>
+                        <div class="flight-info-city-time">
+                            <div class="flight-info-out">
+                                <span style="font-weight: bold; color:#016d8e;">
+                                    <%= flight.city_1 %><br>Вокзал <%= flight.station_1 %></span>
+                                <span><%= flight.time_start.split(':').slice(0, 2).join(':') %></span>
+                            </div>
+                            <div class="flight-info-time">
+                                <span>-------------------------></span>
+                                <span>Время в пути: <%= flight.time_way.split(':').slice(0, 2).join(':') %></span>
+                            </div>
+                            <div class="flight-info-in">
+                                <span style="font-weight: bold; color:#016d8e;"><%= flight.city_2 %><br>Вокзал <%= flight.station_2 %></span>
+                                <span><%= flight.time_end.split(':').slice(0, 2).join(':') %></span>
+                            </div>
+                        </div>
+                    </div>
+                    <% if (flight.number_train.endsWith('К')) { %>
+                        <ul class="buttons-column">
+
+                            <a href="/passangers/<%= flight.id_flight %>/1/Плацкарт/<%= date_flight%>" class="button">
+                                <% if (count_seats[index][0] !== 0) { %>
+                                    <li>Плацкарт: <%= count_seats[index][0] %></li>
+                                <% } %>
+                            </a>
+                            <a href="/passangers/<%= flight.id_flight %>/2/Купе/<%= date_flight%>" class="button">
+                                <% if (count_seats[index][1] !== 0) { %>
+                                    <li>Купе: <%= count_seats[index][1] %></li>
+                                <% } %>
+                            </a>
+                            <a href="/passangers/<%= flight.id_flight %>/3/СВ/<%= date_flight%>" class="button">
+                                <% if (count_seats[index][2] !== 0) { %>
+                                    <li>СВ: <%= count_seats[index][2] %></li>
+                                <% } %>
+                            </a>
+
+                        </ul>
+                    </div>
+                    <% } else { %>
+                        <ul class="buttons-column">
+                            
+                                <a href="/passangers/<%= flight.id_flight %>/1/Эконом/<%= date_flight%>" class="button">
+                                    <% if (count_seats[index][0] !== 0) { %>
+                                        <li>Эконом: <%= count_seats[index][0] %></li>
+                                    <% } %>
+                                </a>
+                            
+                            
+                                <a href="/passangers/<%= flight.id_flight %>/2/Премиум/<%= date_flight%>" class="button">
+                                    <% if (count_seats[index][1] !== 0) { %>
+                                        <li>Премиум: <%= count_seats[index][1] %></li>
+                                    <% } %>
+                                </a>
+                            
+                            
+                                <a href="/passangers/<%= flight.id_flight %>/3/Люкс/<%= date_flight%>" class="button">
+                                    <% if (count_seats[index][2] !== 0) { %>
+                                        <li>Люкс: <%= count_seats[index][2] %></li>
+                                    <% } %>
+                                </a>
+                            
+                        </ul>
+                    </div>
+                <% } %>
+             
+        <% }); %>
+    </div>
+</body>
+</html>

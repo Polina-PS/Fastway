@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<div class="search">
+    <form class="form-flight" action="/search_flights" method="POST">
+        <input type="text" id="city1" name="city1" placeholder="Откуда">
+        <input type="text" id="city2" name="city2" placeholder="Куда">
+        <input type="text" id="date_flight" name="date_flight" placeholder="Когда">
+        <button type="submit">Найти рейс</button>
+    </form>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+    flatpickr('#date_flight', {
+        dateFormat: 'd.m.Y',
+        enableTime: false,
+        clickOpens: true, // Разрешить открытие календаря при клике
+        allowInput: true, // Разрешить пользователю вводить дату вручную
+        placeholder: 'Когда'
+    });
+</script>

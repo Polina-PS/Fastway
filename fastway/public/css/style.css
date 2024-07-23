@@ -1,0 +1,319 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    color: #333;
+    overflow-y: scroll;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрирование содержимого по горизонтали */
+    align-items: center; /* Выравнивание содержимого по вертикали */
+    max-width: 1200px;
+    margin: 0 auto 35px auto;
+    padding: 20px;
+    gap: 30px;
+}
+
+h1 {
+    display: flex;
+    align-items: center;
+}
+.form-flight {
+    display: flex; /* Использование flexbox для выравнивания элементов */
+}
+
+input[type="text"] {
+    padding: 12px; /* Поля внутри элементов */
+    margin-right: 10px; /* Отступ справа между элементами */
+    border: 1px solid #ccc; /* Граница элементов */
+    border-radius: 5px; /* Скругление углов элементов */
+}
+
+button {
+    padding: 12px 20px; /* Поля внутри кнопки */
+    background-color: #04a3d3; /* Цвет кнопки */
+    color: #fff; /* Цвет текста на кнопке */
+    border-color: #04a3d3;
+    border-radius: 5px; /* Скругление углов кнопки */
+    cursor: pointer;
+    box-shadow: none;
+    outline: none; /* Убираем обводку вокруг кнопки */
+    border-style: solid; /* Убираем стиль рамки у кнопки */
+    border-width: 1px;
+}
+
+button:hover {
+    background-color: #037395;
+}
+
+.search {
+    display: flex; /* Использование flexbox для выравнивания элементов */
+    flex-direction: column; /* Установка направления колонки */
+    justify-content: center; /* Центрирование элементов по горизонтали */
+    align-items: center; /* Выравнивание элементов по вертикали */
+    background-color: #f9f9f9; /* Цвет фона блока */
+    padding: 20px; /* Поля вокруг блока */
+    margin-top: 20px; /* Отступ сверху */
+    border: 1px solid #ccc; /* Граница блока */
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    height: 150px;
+    width: 150px;
+    max-width: 150px; /* Максимальная ширина логотипа */
+    height: auto; /* Автоматическая высота для сохранения пропорций */
+    margin: 0 10px 0 20px; /* Отступ сверху */
+}
+
+.header {
+    padding: 0; /* Внутренние отступы шапки */
+    text-align: center; /* Центрирование текста */
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    height: 130px;
+    background-color: #fff;
+}
+
+.gradient-text {
+    background: linear-gradient(to right, #0198C7, #04bb8492);
+    background-clip: text;
+    color: transparent;
+    font-size: 36px;
+    font-family: Arial, sans-serif;
+    text-transform: uppercase;
+}
+
+.additional-text {
+    font-size: 30px; /* Размер шрифта */
+    font-family: Arial, sans-serif; /* Шрифт */
+    color: #016d8e; /* Цвет текста */
+    text-transform: none; /* Отмена преобразования текста */
+    margin-left: 250px;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    height: 120px;
+    padding: 10px;
+    background-color: #4b928a;
+}
+
+.nav-wrapper {
+    display: flex;
+    justify-content: center; /* Центрирование по горизонтали */
+    background-color: #4b928a; /* Цвет фона блока */
+    border-radius: 10px; /* Скругленные углы */
+    margin: 3px auto;
+    padding: 3px;
+}
+
+.nav-btn {
+    background-color: #fff;
+    color: #4b928a;
+    text-decoration: none;
+    padding: 15px 10px;
+    margin: 3px;
+    border-radius: 4px;
+    font-weight: bold; 
+    font-size: 16px; 
+    width: 190px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.nav-btn:hover {
+    background-color: #aad2ced6;
+    color: #fff;
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #037395;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.flight {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 1000px;
+    height: 200px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.flight-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 45px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 700px;
+    font-family: Arial, sans-serif; /* Шрифт */
+    color: #333;
+}
+
+.flight-info-train {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.flight-info-city-time {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.flight-info-out {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 20px;
+    list-style: none;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.flight-info-time {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.flight-info-in {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 20px;
+    list-style: none;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.button {
+    background-color: #04a3d3;
+    color: #fff;
+    text-align: center;
+    width: 130px;
+    padding: 10px 0;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.button:hover,
+.button:active {
+    background-color: #037395; /* Новый цвет при наведении и нажатии */
+}
+
+.button:hover {
+    text-decoration: none; /* Убираем подчеркивание при наведении */
+}
+
+.buttons-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 150px;
+}
+
+.button-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 150px;
+}
+
+
+
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 5px 0;
+}
+
+.level-1 {
+    font-weight: bold;
+}
+
+.level-2 {
+    padding-left: 20px;
+}
+
+.level-3 {
+    padding-left: 40px;
+}
+
+a {
+    text-decoration: none;
+    color: #016d8e;
+    display: block;
+}
+
+
+
+.success {
+    font-size: 20px;
+}
+
